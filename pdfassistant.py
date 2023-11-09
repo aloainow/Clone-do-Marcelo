@@ -64,8 +64,8 @@ for section in sections:
 
 
 
-#llm = ChatGooglePalm(temperature=temperature, max_output_tokens= 512 ,verbose=True,streaming=True)
-llm = ChatOpenAI(temperature=0.4, model= "gpt-3.5-turbo", verbose=True)
+
+llm = ChatOpenAI(temperature=0.4, max_tokens=1024, model= "gpt-3.5-turbo", verbose=True)
 
 folder_path = "./files"
 
@@ -169,7 +169,7 @@ if file_paths is not None:
         prompt_template = r"""
 -You are a helpful assistant who can speak portuguese.
 -talk humbly. Answer the question from the provided context.
--Use the following pieces of context to answer the question at the end. Your answer should be less than 30 words.
+-Use the following pieces of context to answer the question at the end.
 -If you don't know the answer, just say that you don't know.
 -this is the context:
 ---------
