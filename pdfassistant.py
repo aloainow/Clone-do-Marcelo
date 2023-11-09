@@ -65,7 +65,7 @@ for section in sections:
 
 
 
-llm = ChatOpenAI(temperature=0.4, max_tokens=1024, model= "gpt-3.5-turbo", verbose=True)
+llm = OpenAI(temperature=0.6, max_tokens=1024, model= "gpt-3.5-turbo", verbose=True)
 
 folder_path = "./files"
 
@@ -169,7 +169,7 @@ if file_paths is not None:
         prompt_template = r"""
 -You are a helpful assistant who can speak portuguese.
 -talk humbly. Answer the question from the provided context.
--Use the following pieces of context to answer the question at the end.
+-Use the following pieces of context to answer the question at the end. Your answer should be less than 100 words.
 -If you don't know the answer, just say that you don't know.
 -this is the context:
 ---------
