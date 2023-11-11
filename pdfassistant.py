@@ -41,7 +41,7 @@ st.title("Cérebro RD 🎈")
 
 
 
-about = st.sidebar.expander("🧠 About")
+about = st.sidebar.expander("🧠 Sobre o Cérebro RD")
 sections = [r"""
 Por aqui você consegue aliar a tecnologia excepcional GPT ao conteúdo do RD, com infinitas possibilidades.
 Pesquise por assuntos ,aulas semanais do RD até a 068 e dos módulos de saúde financeira, musculação, nutrição,NEC e Masterclass, vejas livros que o Eslen indica com seus resumos, faça perguntas sobre conteúdos do RD, se informe sobre outros projetos do Eslen , etc..
