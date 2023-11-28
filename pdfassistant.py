@@ -65,7 +65,7 @@ for section in sections:
 
 
 
-llm = ChatOpenAI(temperature=0.6, model= "gpt-3.5-turbo", verbose=True)
+llm = ChatOpenAI(temperature=0.3, model= "gpt-3.5-turbo", verbose=True)
 
 folder_path = "./files"
 
@@ -100,7 +100,7 @@ def processing_pdf_docx_files(file_paths):
         # Split the text using Character Text Splitter
         text_splitter = CharacterTextSplitter(
             separator="\n",
-            chunk_size=2000,
+            chunk_size=1000,
             chunk_overlap=200,
             length_function=len,
         )
@@ -192,7 +192,7 @@ Answer:
         )
 
         # Run the question-answering chain
-        docs = document_search.similarity_search(prompt, k=5)
+        docs = document_search.similarity_search(prompt, k=6)
 
             # Load question-answering chain
         chain = load_qa_chain(llm=llm, verbose= True, prompt = PROMPT,memory=memory, chain_type="stuff")
