@@ -89,7 +89,7 @@ def processing_pdf_docx_files(file_paths):
         # Split the text using Character Text Splitter
         text_splitter = CharacterTextSplitter(
             separator="\n",
-            chunk_size=1000,
+            chunk_size=1500,
             chunk_overlap=200,
             length_function=len,
         )
@@ -157,9 +157,10 @@ if file_paths is not None:
             
         prompt_template = r"""
 -You are a helpful assistant who can speak portuguese.
--talk humbly. Answer the question from the provided context.
--Use the following pieces of context to answer the question at the end. Your answer should be less than 100 words.
--If you don't know the answer, just say that you don't know.
+-talk humbly. Answer the question from the provided context. Do Not answer from your training data.
+-Use the following pieces of context to answer the question at the end.
+-If you don't know the answer, just say that you don't know. Do NOT makeup any answer.
+
 -this is the context:
 ---------
 {context}
@@ -181,7 +182,7 @@ Answer:
         )
 
         # Run the question-answering chain
-        docs = document_search.similarity_search(prompt, k=6)
+        docs = document_search.similarity_search(prompt, k=5)
 
             # Load question-answering chain
         chain = load_qa_chain(llm=llm, verbose= True, prompt = PROMPT,memory=memory, chain_type="stuff")
