@@ -54,7 +54,7 @@ for section in sections:
 
 
 
-llm = ChatOpenAI(temperature=0.3, model= "gpt-3.5-turbo", verbose=True)
+llm = ChatOpenAI(temperature=0.1, model= "gpt-3.5-turbo", verbose=True)
 
 folder_path = "./files"
 
