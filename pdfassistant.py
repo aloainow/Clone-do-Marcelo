@@ -36,12 +36,12 @@ def get_csv_text(file):
     return "Empty"
 
 
-st.set_page_config(page_title="JustIA", page_icon="books")
-st.title("JustIA")
+st.set_page_config(page_title="Marcelo Clone", page_icon="books")
+st.title("Marcelo Clone")
 
 
 
-about = st.sidebar.expander("🧠 Sobre JustIA")
+about = st.sidebar.expander("🧠 Sobre Marcelo Clone")
 sections = [r"""
 Por aqui você consegue aliar a tecnologia excepcional GPT ao conteúdo jurídico, com infinitas possibilidades. Pesquise por assuntos
 
@@ -54,7 +54,7 @@ for section in sections:
 
 
 
-llm = ChatOpenAI(temperature=0.1, model= "gpt-3.5-turbo", verbose=True)
+llm = ChatOpenAI(temperature=0, model= "gpt-3.5-turbo-16k", verbose=True)
 
 folder_path = "./files"
 
@@ -157,7 +157,8 @@ if file_paths is not None:
             
         prompt_template = r"""
 -You are a helpful assistant who can speak portuguese.
--talk humbly. Answer the question from the provided context. Do Not answer from your training data.
+Do not answer from your own knowledge.
+-talk humbly. Answer the question only from the provided context. Do Not answer from your training data.
 -Use the following pieces of context to answer the question at the end.
 -If you don't know the answer, just say that you don't know. Do NOT makeup any answer.
 
@@ -173,7 +174,7 @@ This is chat history between you and user:
 
 New Question: {question}
 
-Answer: 
+Helpful Answer: 
 """
 
 
@@ -182,7 +183,7 @@ Answer:
         )
 
         # Run the question-answering chain
-        docs = document_search.similarity_search(prompt, k=5)
+        docs = document_search.similarity_search(prompt, k=8)
 
             # Load question-answering chain
         chain = load_qa_chain(llm=llm, verbose= True, prompt = PROMPT,memory=memory, chain_type="stuff")
