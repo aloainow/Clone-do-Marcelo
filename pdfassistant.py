@@ -36,12 +36,12 @@ def get_csv_text(file):
     return "Empty"
 
 
-st.set_page_config(page_title="Marcelo Clone", page_icon="books")
-st.title("Marcelo Clone")
+st.set_page_config(page_title="Clone do Marcelo", page_icon="books")
+st.title("Clone do Marcelo")
 
 
 
-about = st.sidebar.expander("🧠 Sobre Marcelo Clone")
+about = st.sidebar.expander("🧠 Sobre Clone do Marcelo")
 sections = [r"""
 Por aqui você consegue aliar a tecnologia excepcional GPT ao conteúdo jurídico, com infinitas possibilidades. Pesquise por assuntos
 
