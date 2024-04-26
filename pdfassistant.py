@@ -36,14 +36,14 @@ def get_csv_text(file):
     return "Empty"
 
 
-st.set_page_config(page_title="Clone do Marcelo", page_icon="books")
-st.title("Clone do Marcelo")
+st.set_page_config(page_title="IBB_Academy", page_icon="books")
+st.title("IBB_Academy")
 
 
 
-about = st.sidebar.expander("🧠 Sobre Clone do Marcelo")
+about = st.sidebar.expander("🧠 Sobre IBB_Academy")
 sections = [r"""
-Por aqui você consegue aliar a tecnologia excepcional GPT ao conteúdo jurídico, com infinitas possibilidades. Pesquise por assuntos
+Por aqui você consegue aliar a tecnologia excepcional GPT ao coteúdo do curso da FIBA, com infinitas possibilidades. Pesquise por assuntos
 
 Para extrair o melhor da tecnologia GPT no conteúdo do direito, utilize comandos como :
 Formato: Defina o formato ou a estrutura. (Ex: lista, tópicos, markdown); Objetivo: Indique o objetivo ou propósito da resposta. (Ex: informar); Contexto: Forneça informações, dados ou contexto para geração de conteúdo; Escopo: Determine os limites ou a abrangência do tópico em questão; Palavras-chave: Liste palavras-chave, frases importantes a serem incluídas ou resumos; Chamada para ação: Inclua uma chamada clara para ação ou indique os próximos passos a serem seguidos.    
@@ -126,7 +126,7 @@ if file_paths is not None:
     
     for msg in st.session_state.messages:
         if msg["role"] == "Assistant":
-            st.chat_message("assistant", avatar="🎈").write(msg["content"])
+            st.chat_message("assistant", avatar="").write(msg["content"])
         else:
             st.chat_message(msg["role"]).write(msg["content"])
 
